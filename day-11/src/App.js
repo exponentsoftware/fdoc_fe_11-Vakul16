@@ -7,7 +7,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Albums from './Components/Albums';
 import Categories from './Components/Categories'
 import SongsPlaylist from './Components/SongsPlaylist'
+import Login from './Components/SignIn/Login'
+import { ProtectedRoute } from "./Components/SignIn/Protected";
 import './App.css';
+import Logout from './Components/SignIn/Logout'
+import DataList from './Components/ApiData/Data';
 
 export class App extends Component {
   constructor(props) {
@@ -72,19 +76,26 @@ export class App extends Component {
       <div className="App">
          <Router>
         <Nav />
+        {/* <Login /> */}
         <Switch> 
-        {/* <Route exact path = "/" component = {Home} /> */}
-        <Route path="/" exact component={Categories}></Route>
-        <Route path = "/addalbum" component = {AddAlbum} />
-        <Route path = "/albums" component = {Albums} />
+        <Route path="/" exact component={Login}></Route>
+        <ProtectedRoute exact path="/categories" component={Logout} />
+        <Route path="/categories" exact component={Categories}></Route>
+        <Route path = "/addalbum" exact component = {AddAlbum} />
+        <Route path = "/albums" exact component = {Albums} />
+        {/* <Route path = "/album" exact component = {Album} /> */}
         <Route path = "/playlist/:id" component = {SongsPlaylist} />
         </Switch>
         </Router>
-        <AddAlbum receiveFunc = {this.receiver}/>
+
+        {/* <AddAlbum receiveFunc = {this.receiver}/> */}
+        
         {/* <Album artist={this.state.artist} album_title={this.state.album_title} album_cover={this.state.album_cover}/> */}
-        <Albums albums={this.state.albums} deleteFunc={this.delete}/> 
+        
+        {/* <Albums albums={this.state.albums} deleteFunc={this.delete}/>  */}
         {/* </Switch>
         </Router> */}
+        <DataList />
       </div>
       
       

@@ -18,7 +18,7 @@ function Albums(props) {
                         setSearchTerm(e.target.value);
                     }}
                     />
-                    {props.albums.filter( val=> {
+                    {props.albums.filter((val)=> {
                         if(searchTerm === ""){
                             return val
                         }else if (val.artist.toLowerCase().includes(searchTerm.toLowerCase())){
