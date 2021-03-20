@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import React, { Component } from 'react'
 import AddAlbum from './Components/AddAlbum'
 import Album from './Components/Album'

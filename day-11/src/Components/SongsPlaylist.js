@@ -5,7 +5,6 @@ import { ReactComponent as HeartIcon } from '../images/heart.svg'
 import { ReactComponent as NoteIcon } from '../images/note.svg'
 
 const PlaylistPage = () => {
-//   let { id } = useParams()
 
   return (
     <div className="playlistPage">
